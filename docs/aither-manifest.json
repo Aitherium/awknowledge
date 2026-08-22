@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1",
+  "name": "awknowledge",
+  "description": "How to run a coding agent so the result survives — the laws, with evidence.",
+  "url": "https://aitherium.github.io/awknowledge/",
+  "repository": "https://github.com/Aitherium/awknowledge",
+  "kind": "corpus",
+  "status": "public",
+  "adopt": "Read one law and apply it to the next thing you ship.",
+  "pairs_with": [
+    "awskills",
+    "awkno"
+  ],
+  "includes": [],
+  "metrics": {
+    "files": {
+      "value": 30,
+      "as_of": "2026-08-22T03:16:07Z"
+    },
+    "tests": {
+      "value": 0,
+      "as_of": "2026-08-22T03:16:07Z"
+    }
+  }
+}
