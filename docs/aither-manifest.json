@@ -11,15 +11,5 @@
     "awskills",
     "awkno"
   ],
-  "includes": [],
-  "metrics": {
-    "files": {
-      "value": 31,
-      "as_of": "2026-08-23T01:49:39Z"
-    },
-    "tests": {
-      "value": 0,
-      "as_of": "2026-08-23T01:49:39Z"
-    }
-  }
+  "includes": []
 }

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Developer Codex - how to run a coding agent so the result survives</title>
-<meta name="description" content="Eighteen laws for running coding agents at program scale, distilled from real incidents on a live platform. Plus a four-chapter ramp for anyone who has never used an agent. Free, MIT licensed.">
-<meta property="og:title" content="The Developer Codex - how to run a coding agent so the result survives">
-<meta property="og:description" content="Eighteen laws for running coding agents at program scale, distilled from real incidents on a live platform. Plus a four-chapter ramp for anyone who has never used an agent. Free, MIT licensed.">
-<meta property="og:type" content="website">
+<title>awskills — man page — The Aither World Guide</title>
+<meta name="description" content="Portable agent skills — self-contained procedures an agent loads on demand.">
+<meta property="og:title" content="awskills — man page — The Aither World Guide">
+<meta property="og:description" content="Portable agent skills — self-contained procedures an agent loads on demand.">
+<meta property="og:type" content="article">
 <meta name="theme-color" content="#0A0F1E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -478,94 +478,107 @@ header .wrap>*:nth-child(6){animation-delay:.25s}
 ::-webkit-scrollbar-thumb{background:oklch(0.25 0.03 250);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:oklch(0.35 0.05 260)}
 </style>
-<style>:root{--accent:oklch(0.80 0.13 195);--accent-a04:oklch(0.80 0.13 195 / 4%);--accent-a10:oklch(0.80 0.13 195 / 10%);--accent-a30:oklch(0.80 0.13 195 / 30%);--accent-a50:oklch(0.80 0.13 195 / 50%);--accent-glow:oklch(0.80 0.13 195 / 18%);}</style>
+<style>:root{--accent:oklch(0.78 0.14 85);--accent-a04:oklch(0.78 0.14 85 / 4%);--accent-a10:oklch(0.78 0.14 85 / 10%);--accent-a30:oklch(0.78 0.14 85 / 30%);--accent-a50:oklch(0.78 0.14 85 / 50%);--accent-glow:oklch(0.78 0.14 85 / 18%);}</style>
+<style>
+.guide-wrap{max-width:1180px;margin:0 auto;padding:0 1.25rem}
+.crumbs{font-size:.85rem;opacity:.75;margin:1.2rem 0 .4rem}
+.crumbs a{color:inherit}
+.chapter-head{padding:1.5rem 0 1rem;border-bottom:1px solid var(--accent-a30)}
+.chapter-head .meta{font-size:.9rem;opacity:.8;margin-top:.4rem}
+.chapter-head h1{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:.2rem 0}
+.cols{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:2rem;padding:1.5rem 0}
+.col h2{font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin:0 0 .8rem}
+.col h3{margin:1.3rem 0 .4rem;font-size:1.15rem}
+.col p,.col li{line-height:1.6}
+.col.do{background:var(--accent-a04);border:1px solid var(--accent-a10);border-radius:14px;
+  padding:1.2rem 1.3rem;align-self:start;position:sticky;top:1rem}
+.col.do .code{margin:.6rem 0}
+.step{margin:0 0 1.4rem}
+.step .n{display:inline-block;min-width:1.7rem;height:1.7rem;line-height:1.7rem;text-align:center;
+  border-radius:50%;background:var(--accent);color:#0A0F1E;font-weight:700;margin-right:.5rem}
+.step .opt{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;opacity:.7;
+  margin-left:.4rem}
+.expect{font-size:.92rem;margin:.3rem 0 0;padding-left:.4rem;
+  border-left:3px solid var(--accent-a50)}
+.ifnot{font-size:.9rem;opacity:.85;margin:.35rem 0 0;padding-left:.4rem;
+  border-left:3px solid transparent}
+.ifnot b{opacity:1}
+.done{margin-top:1.6rem;padding:1rem 1.1rem;border:1px dashed var(--accent-a50);border-radius:12px}
+.done h2{margin-top:0}
+.learned{padding:1.2rem 0 2rem;border-top:1px solid var(--accent-a30)}
+.learned ul{margin:.4rem 0 0;padding-left:1.2rem}
+.pager{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0 3rem}
+.pager a{flex:1;padding:.9rem 1rem;border:1px solid var(--accent-a30);border-radius:12px;
+  text-decoration:none;color:inherit}
+.pager a .k{display:block;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;
+  opacity:.65}
+.pager a.next{text-align:right}
+.path-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;
+  padding:1rem 0 2rem}
+.path-card{display:block;padding:1.1rem 1.2rem;border:1px solid var(--accent-a30);
+  border-radius:14px;text-decoration:none;color:inherit;background:var(--accent-a04)}
+.path-card .n{font-family:'JetBrains Mono',monospace;font-size:.8rem;opacity:.7}
+.path-card h3{margin:.25rem 0 .35rem}
+.path-card p{margin:0;font-size:.92rem;opacity:.85;line-height:1.5}
+.path-card .min{font-size:.8rem;opacity:.65;margin-top:.5rem}
+.man dl{display:grid;grid-template-columns:max-content 1fr;gap:.5rem 1.2rem}
+.man dt{font-family:'JetBrains Mono',monospace;letter-spacing:.06em;opacity:.7}
+.man .sect{margin:1.6rem 0}
+.man .sect h2{font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7;
+  margin:0 0 .5rem}
+.stamp{font-size:.8rem;opacity:.6;margin:2rem 0}
+.man-index{columns:3;column-gap:2rem;padding:1rem 0 2rem}
+.man-index a{display:block;padding:.25rem 0;text-decoration:none;color:inherit}
+.man-index a small{opacity:.7}
+.note-box{padding:.8rem 1rem;border-left:3px solid var(--accent);background:var(--accent-a04);
+  border-radius:8px;margin:.8rem 0}
+@media (max-width:880px){.cols{grid-template-columns:1fr}.col.do{position:static}
+  .man-index{columns:1}.man dl{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <nav><div class="wrap">
   <a class="brand" href="https://aitherium.com"><span class="ai">Ai</span><span>Aitherium</span></a>
   <span class="sp"></span>
-  <a class="nl hide-sm" href="#catalogue">Read the laws</a>
-  <a class="nl hide-sm" href="#start">Quick start</a>
-  <a class="nl" href="#universe">The estate</a>
-  <a class="nl" href="index.html">Skills pack</a>
-  <a class="nl" href="https://github.com/Aitherium/awskills">GitHub</a>
+  <a class="nl" href="../index.html">The Path</a><a class="nl" href="../man/index.html">Man pages</a><a class="nl" href="../laws.html">Laws</a><a class="nl" href="https://aitherium.github.io/awskills/">Skills</a>
+  <a class="nl" href="https://github.com/Aitherium/awknowledge">GitHub</a>
 </div></nav>
+<main class="guide-wrap">
 
-<header><div class="wrap">
-  <div class="eyebrow"><span class="dot"></span>MIT · the developer codex</div>
-  <div class="exp"><span class="glyph">◈</span>
-    <span>You are in <b>The Armory</b> — What will you teach it?</span>
-  </div>
-  <h1>Code that <span class="g">tells you when it is wrong</span></h1>
-  <p class="lede">An agent will finish a task, report success, and be completely wrong - not because it lied, but because nothing in its loop could ever have found out. Every law here is one way a system was made able to find out. All eighteen were a real failure first.</p>
-  <div class="cta">
-    <a class="btn btn-p" href="#start">Get started</a>
-    <a class="btn btn-s" href="https://github.com/Aitherium/awskills">View source</a>
-  </div>
-  <div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">bash</span></div><pre><span class="c"># the codex, the doctrine and 70+ skills - one clone</span>
-<span class="k">git clone https://github.com/Aitherium/awskills</span>
-<span class="k">cd awskills &amp;&amp; bash scripts/install-awskills.sh</span>
+<p class="crumbs"><a href="../index.html">The Path</a> ›
+<a href="index.html">Man pages</a> › awskills</p>
+<article class="man">
+<header class="chapter-head">
+  <h1>awskills<small style="opacity:.6;font-size:.5em;margin-left:.6rem">
+  (corpus,
+  public)</small></h1>
+  <p class="lede">Portable agent skills — self-contained procedures an agent loads on demand.</p>
+</header>
+<div class="sect"><h2>Name</h2><p><b>awskills</b> — Portable agent skills — self-contained procedures an agent loads on demand.</p></div>
+<div class="sect"><h2>The problem it solves</h2><p>Prompt knowledge dies in a transcript. A skill is a procedure written once, in a file, that any agent can load when the situation calls for it.</p></div>
+<div class="sect"><h2>Instead of trusting / you check</h2><dl><dt>instead of trusting</dt><dd>that an agent knows your procedure</dd><dt>you check</dt><dd>the procedure written down, versioned, and loadable by any agent</dd></dl></div>
+<div class="sect"><h2>Adopt it alone</h2><p>Copy one .md into your agent's skills dir and tell it to use that skill.</p></div>
+<div class="sect"><h2>Install</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">install</span></div><pre>git clone https://github.com/Aitherium/awskills</pre></div></div>
+<div class="sect"><h2>Where it sits in the path</h2><ul><li><a href="../path/04-build-an-agent.html">Chapter 4 · Build your first agent</a></li><li><a href="../path/05-agent-packs.html">Chapter 5 · Agent packs</a></li></ul></div>
+<div class="sect"><h2>See also</h2><p><a href="awdk.html">awdk</a> · <a href="awknowledge.html">awknowledge</a></p></div>
+<div class="sect"><h2>Links</h2><p><a href="https://github.com/Aitherium/awskills">Source on GitHub</a> · <a href="https://aitherium.github.io/awskills/">Its own page</a></p></div>
+<p class="stamp">Generated 2026-08-23 21:45Z from the ecosystem registry. A field here
+that is wrong is wrong in the registry — fix it there and this page follows.</p>
+</article>
 
-<span class="c"># then, to your agent:</span>
-<span class="k">&quot;use the code-like-david skill&quot;</span></pre></div>
-  <div class="stats"><div class="stat"><span class="v">20</span><span class="l">laws</span></div><div class="stat"><span class="v">10</span><span class="l">chapters</span></div><div class="stat"><span class="v">MIT</span><span class="l">license</span></div><div class="stat"><span class="v">0</span><span class="l">dependencies</span></div></div>
-</div></header>
-
-<section id="catalogue"><div class="wrap"><h2>The codex, in full</h2><p class="sub">Four chapters to get from nothing to a working setup, then eighteen laws. Filter by part, or search for the failure you are actually looking at. Every row opens the document.</p><div class="panel" data-catalogue="30"><div class="panel-hd"><span class="t">codex/</span><span class="sp"></span><span class="count js-count">30 of 30</span></div><div class="field-row"><div><label for="cat-q">search</label><input class="field js-q" id="cat-q" type="search" placeholder="search - e.g. silence, deploy, gate, ratchet, empty" autocomplete="off"></div></div><div class="chips"><button class="chip" type="button" aria-pressed="false" data-tag="start here">start here</button><button class="chip" type="button" aria-pressed="false" data-tag="enforcement">enforcement</button><button class="chip" type="button" aria-pressed="false" data-tag="silence">silence</button><button class="chip" type="button" aria-pressed="false" data-tag="adoption">adoption</button><button class="chip" type="button" aria-pressed="false" data-tag="deployment">deployment</button><button class="chip" type="button" aria-pressed="false" data-tag="trust">trust</button><button class="chip" type="button" aria-pressed="false" data-tag="delivery">delivery</button></div><div class="rows"><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/path/00-welcome.md" data-tag="start here" data-search="welcome to aither world what this is, before you install anything start here"><span class="n">Welcome to Aither World</span><span class="d">what this is, before you install anything</span><span class="tag">start here</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/path/01-install-awdk.md" data-tag="start here" data-search="install awdk one command, then proof it worked start here"><span class="n">Install awdk</span><span class="d">one command, then proof it worked</span><span class="tag">start here</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/path/02-first-brain.md" data-tag="start here" data-search="your first local brain an open model on your own computer, offline start here"><span class="n">Your first local brain</span><span class="d">an open model on your own computer, offline</span><span class="tag">start here</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/path/03-talk-to-it.md" data-tag="start here" data-search="talk to it one question, then a conversation start here"><span class="n">Talk to it</span><span class="d">one question, then a conversation</span><span class="tag">start here</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/path/04-build-an-agent.md" data-tag="start here" data-search="build your first agent a brain plus tools plus a job start here"><span class="n">Build your first agent</span><span class="d">a brain plus tools plus a job</span><span class="tag">start here</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/path/05-agent-packs.md" data-tag="start here" data-search="agent packs a whole agent in one command start here"><span class="n">Agent packs</span><span class="d">a whole agent in one command</span><span class="tag">start here</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/path/06-your-own-hardware.md" data-tag="start here" data-search="your own hardware cpu, gpu, laptop, rack start here"><span class="n">Your own hardware</span><span class="d">CPU, GPU, laptop, rack</span><span class="tag">start here</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/path/07-deploy-on-awnix.md" data-tag="start here" data-search="deploy on awnix immutable linux for machines where agents write software start here"><span class="n">Deploy on awnix</span><span class="d">immutable Linux for machines where agents write software</span><span class="tag">start here</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/path/08-many-agents.md" data-tag="start here" data-search="many agents, one repo leases, a call graph, messaging, memory start here"><span class="n">Many agents, one repo</span><span class="d">leases, a call graph, messaging, memory</span><span class="tag">start here</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/path/09-omnibox.md" data-tag="start here" data-search="the omnibox your terminal answers you start here"><span class="n">The omnibox</span><span class="d">your terminal answers you</span><span class="tag">start here</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/01-a-rule-nothing-asserts-is-a-suggestion.md" data-tag="enforcement" data-search="a rule nothing asserts is a suggestion the first law, and the one the other seventeen depend on enforcement"><span class="n">A rule nothing asserts is a suggestion</span><span class="d">the first law, and the one the other seventeen depend on</span><span class="tag">enforcement</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/02-make-it-a-check-not-a-ticket.md" data-tag="enforcement" data-search="make it a check, not a ticket a mechanically-detectable defect must never be discharged by writing it down enforcement"><span class="n">Make it a check, not a ticket</span><span class="d">a mechanically-detectable defect must never be discharged by writing it down</span><span class="tag">enforcement</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/03-watch-your-gate-fail.md" data-tag="enforcement" data-search="watch your gate fail a checker nobody has seen fail is not a gate enforcement"><span class="n">Watch your gate fail</span><span class="d">a checker nobody has seen fail is not a gate</span><span class="tag">enforcement</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/04-mutate-the-test-not-just-the-code.md" data-tag="enforcement" data-search="mutate the test, not just the code a fixture that cannot fail proves nothing enforcement"><span class="n">Mutate the test, not just the code</span><span class="d">a fixture that cannot fail proves nothing</span><span class="tag">enforcement</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/05-design-for-the-silence.md" data-tag="silence" data-search="design for the silence the expensive failures do not raise silence"><span class="n">Design for the silence</span><span class="d">the expensive failures do not raise</span><span class="tag">silence</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/06-a-check-that-cannot-run-must-not-pass.md" data-tag="silence" data-search="a check that cannot run must not pass silence is not a verdict silence"><span class="n">A check that cannot run must not pass</span><span class="d">silence is not a verdict</span><span class="tag">silence</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/07-the-symptom-names-the-innocent.md" data-tag="silence" data-search="the symptom names the innocent follow the wire, not the error text silence"><span class="n">The symptom names the innocent</span><span class="d">follow the wire, not the error text</span><span class="tag">silence</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/08-a-checker-in-the-wrong-place-found-nothing.md" data-tag="silence" data-search="a checker in the wrong place found nothing and that is indistinguishable from a clean pass silence"><span class="n">A checker in the wrong place found nothing</span><span class="d">and that is indistinguishable from a clean pass</span><span class="tag">silence</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/09-detection-without-delivery-is-not-detection.md" data-tag="silence" data-search="detection without delivery is not detection the alert path is the one thing you cannot verify by using it silence"><span class="n">Detection without delivery is not detection</span><span class="d">the alert path is the one thing you cannot verify by using it</span><span class="tag">silence</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/10-a-gate-that-floods-gets-switched-off.md" data-tag="adoption" data-search="a gate that floods gets switched off being right too loudly is how a rule dies adoption"><span class="n">A gate that floods gets switched off</span><span class="d">being right too loudly is how a rule dies</span><span class="tag">adoption</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/11-open-green-ratchet-down.md" data-tag="adoption" data-search="open green, ratchet down a gate that opens red gets bypassed, not satisfied adoption"><span class="n">Open green, ratchet down</span><span class="d">a gate that opens red gets bypassed, not satisfied</span><span class="tag">adoption</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/12-measure-it-again.md" data-tag="adoption" data-search="measure it again every number in your docs is decaying right now adoption"><span class="n">Measure it again</span><span class="d">every number in your docs is decaying right now</span><span class="tag">adoption</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/13-written-is-not-deployed.md" data-tag="deployment" data-search="written is not deployed ask the running thing, never the source deployment"><span class="n">Written is not deployed</span><span class="d">ask the running thing, never the source</span><span class="tag">deployment</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/14-you-wrote-it-that-does-not-mean-it-ships.md" data-tag="deployment" data-search="you wrote it; that does not mean it ships a file is tracked when the tooling says so deployment"><span class="n">You wrote it; that does not mean it ships</span><span class="d">a file is tracked when the tooling says so</span><span class="tag">deployment</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/15-generate-never-copy.md" data-tag="deployment" data-search="generate, never copy a comment asking people to keep two copies in step is not a gate deployment"><span class="n">Generate, never copy</span><span class="d">a comment asking people to keep two copies in step is not a gate</span><span class="tag">deployment</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/16-the-defect-lives-in-the-union.md" data-tag="deployment" data-search="the defect lives in the union every file is individually correct deployment"><span class="n">The defect lives in the union</span><span class="d">every file is individually correct</span><span class="tag">deployment</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/17-fail-closed-then-prove-the-happy-path.md" data-tag="trust" data-search="fail closed, then prove the happy path a gate that denies everything passes every denial test trust"><span class="n">Fail closed, then prove the happy path</span><span class="d">a gate that denies everything passes every denial test</span><span class="tag">trust</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/18-never-trust-the-caller.md" data-tag="trust" data-search="never trust the caller for an authorization decision the payload is not evidence trust"><span class="n">Never trust the caller for an authorization decision</span><span class="d">the payload is not evidence</span><span class="tag">trust</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/19-count-the-closure-not-the-edge.md" data-tag="trust" data-search="count the closure, not the edge an import count is not a portability measurement trust"><span class="n">Count the closure, not the edge</span><span class="d">an import count is not a portability measurement</span><span class="tag">trust</span></a><a class="row-item" href="https://github.com/Aitherium/awskills/blob/main/codex/laws/20-a-platform-you-cannot-ship-to-is-not-supported.md" data-tag="delivery" data-search="a platform you cannot ship to is not supported the omnios law delivery"><span class="n">A platform you cannot ship to is not supported</span><span class="d">the OmniOS law</span><span class="tag">delivery</span></a></div><div class="empty js-empty" style="display:none">Nothing matches that.</div></div></div></section>
-
-<section id="features"><div class="wrap">
-  <h2>How to read it</h2>
-  <p class="sub">The laws are grouped into five parts. If you only have time for one, read Silence - those five cost the most per incident, because nothing tells you they happened.</p>
-  <div class="grid"><div class="card"><span class="ico">start</span><h3>Start here</h3><p>Never used a coding agent? Four chapters, about an hour, ending with one real verified change on your own repository. Covers local models and how to give an agent hands.</p></div><div class="card"><span class="ico">I</span><h3>Enforcement</h3><p>A standard nothing checks is a preference. How a preference becomes a property of the codebase - and why a checker nobody has watched fail is not a gate.</p></div><div class="card"><span class="ico">II</span><h3>Silence</h3><p>The expensive failures do not raise. They return 200, render correctly, log nothing, and leave the container healthy. A missing thing is indistinguishable from a thing nobody wanted.</p></div><div class="card"><span class="ico">III</span><h3>Adoption</h3><p>A gate only works while people keep it switched on. Most gates die of being right too loudly - so narrow the rule, pin the count, ratchet down.</p></div><div class="card"><span class="ico">IV</span><h3>Deployment</h3><p>The gap between the code you wrote and the code that is running. A build can succeed and ship nothing; a live mount makes the file current and leaves the process stale.</p></div><div class="card"><span class="ico">V</span><h3>Trust</h3><p>Two patterns no linter will catch, because both are semantic: the gate that fails open, and the decision keyed on input the caller chose.</p></div></div>
-</div></section>
-
-<section id="start"><div class="wrap">
-  <h2>Quick start</h2>
-  <p class="sub">The codex is markdown. Clone it, read it, or point your agent at it - the laws are written to be loaded by an agent as easily as by a person.</p>
-  <div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">bash</span></div><pre><span class="k">git clone https://github.com/Aitherium/awskills</span>
-<span class="k">cd awskills</span>
-
-<span class="c"># the reading path</span>
-<span class="k">ls codex/path/</span>
-
-<span class="c"># the eighteen laws</span>
-<span class="k">ls codex/laws/</span>
-
-<span class="c"># install the doctrine into your agent&#x27;s config</span>
-<span class="k">bash scripts/install-awskills.sh</span></pre></div>
-  <div class="note"><strong>The laws are descriptive, not aspirational.</strong> Every number here was counted on a running system on the day it was written, and several of the incidents are ones where the first diagnosis was also wrong. Where a law contradicts something you know about your own stack, believe your stack and re-measure - that is <em>literally law twelve</em>.</div>
-</div></section>
-
-<section id="method"><div class="wrap"><h2>The whole method is four steps</h2><p class="sub">Not a reading list. The laws exist to be installed, and this is the loop that installs them. A codebase run this way gets harder to break over time without anyone having to be careful.</p><div class="rows"><div class="row-item"><span class="n">1 &middot; Something breaks</span><span class="d">A real failure, in production or in review. Not a hypothetical.</span></div><div class="row-item"><span class="n">2 &middot; You fix it</span><span class="d">Root cause, not a workaround. A workaround that cannot be avoided gets recorded with a date and a severity.</span></div><div class="row-item"><span class="n">3 &middot; You ask one question</span><span class="d"><em>Could a check have caught this?</em> This is the step everyone skips, and it is the only one that compounds.</span></div><div class="row-item"><span class="n">4 &middot; If yes, the check IS the work</span><span class="d">Write it. Watch it fail on purpose. Wire it somewhere unattended. Do not write a ticket - a ticket is the cheapest possible response to finding a defect, and it is why the same class recurs for weeks.</span></div></div></div></section>
-
-<section class="uni" id="universe"><div class="wrap"><h2>One estate, 8 doors</h2><p class="sub">These projects are organs of the same system — the same identity plane, the same agent runtime, the same operational discipline. Follow any of them.</p><div class="uni-stage"><canvas class="uni-canvas" aria-hidden="true"></canvas><div class="uni-nodes"><a class="orb" href="https://aitherium.com" data-id="aitherium" data-kind="the os" style="--orb:var(--cyan)"><span class="k">the os</span><span class="n">aitherium.com</span><span class="d">The Living OS these four repos are cut from. Open, no login.</span></a><a class="orb" href="https://aitherium.github.io/awdk/" data-id="awdk" data-kind="python" style="--orb:var(--accent-warm)"><span class="k">python</span><span class="n">Aither ADK</span><span class="d">Build AI agent fleets — 3 lines, any backend, local or cloud.</span></a><a class="orb here" href="https://aitherium.github.io/awskills/" data-id="awskills" data-kind="markdown" style="--orb:var(--cyan)"><span class="k">markdown</span><span class="n">awskills</span><span class="d">Portable agent skills — self-contained procedures an agent loads on demand.</span></a><a class="orb" href="https://aitherium.github.io/awknowledge/" data-id="awknowledge" data-kind="markdown" style="--orb:var(--accent-warm)"><span class="k">markdown</span><span class="n">awknowledge</span><span class="d">How to run a coding agent so the result survives — the laws, with evidence.</span></a><a class="orb" href="https://aitherium.github.io/aitherkvcache/" data-id="aitherkvcache" data-kind="cuda" style="--orb:var(--lavender)"><span class="k">cuda</span><span class="n">aitherkvcache</span><span class="d">Near-optimal KV cache quantization for LLM inference — sub-byte compression.</span></a><a class="orb" href="https://aitherium.github.io/AitherZero/" data-id="AitherZero" data-kind="powershell" style="--orb:var(--mint)"><span class="k">powershell</span><span class="n">AitherZero</span><span class="d">PowerShell 7+ automation framework — numbered, self-describing scripts.</span></a><a class="orb" href="https://blog.aitherium.com" data-id="blog" data-kind="writing" style="--orb:var(--coral)"><span class="k">writing</span><span class="n">The Blog</span><span class="d">How all of it is actually built, measured and operated.</span></a><a class="orb" href="https://aitherium.github.io/awrun/" data-id="awrun" data-kind="python" style="--orb:var(--coral)"><span class="k">python</span><span class="n">awrun</span><span class="d">A priority-aware queue and dispatcher for agentic runs and ad-hoc CI builds. It also judges whether the runner pool is big enough for the queue it is draining, and can ask a host to grow it -- reserving capacity is zero-sum, so a saturated pool needs more of it, not a different share of it.</span></a></div></div></div></section>
-
-<!-- The ecosystem constellation. It lives HERE, in the generator, because
-     these pages are regenerated on every sync: a mount hand-added to a repo's
-     docs/index.html is overwritten on the next run and looks like it was never
-     applied. Every generated page therefore carries it, and a repo that
-     publishes no manifest renders as `unknown` rather than vanishing. -->
+</main>
+<section class="uni" id="universe"><div class="wrap"><h2>One estate, 8 doors</h2><p class="sub">These projects are organs of the same system — the same identity plane, the same agent runtime, the same operational discipline. Follow any of them.</p><div class="uni-stage"><canvas class="uni-canvas" aria-hidden="true"></canvas><div class="uni-nodes"><a class="orb" href="https://aitherium.com" data-id="aitherium" data-kind="the os" style="--orb:var(--cyan)"><span class="k">the os</span><span class="n">aitherium.com</span><span class="d">The Living OS these four repos are cut from. Open, no login.</span></a><a class="orb" href="https://aitherium.github.io/awdk/" data-id="awdk" data-kind="python" style="--orb:var(--accent-warm)"><span class="k">python</span><span class="n">Aither ADK</span><span class="d">Build AI agent fleets — 3 lines, any backend, local or cloud.</span></a><a class="orb" href="https://aitherium.github.io/awskills/" data-id="awskills" data-kind="markdown" style="--orb:var(--cyan)"><span class="k">markdown</span><span class="n">awskills</span><span class="d">Portable agent skills — self-contained procedures an agent loads on demand.</span></a><a class="orb here" href="https://aitherium.github.io/awknowledge/" data-id="awknowledge" data-kind="markdown" style="--orb:var(--accent-warm)"><span class="k">markdown</span><span class="n">awknowledge</span><span class="d">How to run a coding agent so the result survives — the laws, with evidence.</span></a><a class="orb" href="https://aitherium.github.io/aitherkvcache/" data-id="aitherkvcache" data-kind="cuda" style="--orb:var(--lavender)"><span class="k">cuda</span><span class="n">aitherkvcache</span><span class="d">Near-optimal KV cache quantization for LLM inference — sub-byte compression.</span></a><a class="orb" href="https://aitherium.github.io/AitherZero/" data-id="AitherZero" data-kind="powershell" style="--orb:var(--mint)"><span class="k">powershell</span><span class="n">AitherZero</span><span class="d">PowerShell 7+ automation framework — numbered, self-describing scripts.</span></a><a class="orb" href="https://blog.aitherium.com" data-id="blog" data-kind="writing" style="--orb:var(--coral)"><span class="k">writing</span><span class="n">The Blog</span><span class="d">How all of it is actually built, measured and operated.</span></a><a class="orb" href="https://aitherium.github.io/awrun/" data-id="awrun" data-kind="python" style="--orb:var(--coral)"><span class="k">python</span><span class="n">awrun</span><span class="d">A priority-aware queue and dispatcher for agentic runs and ad-hoc CI builds.</span></a></div></div></div></section>
 <section class="wrap" style="margin:3rem auto">
   <h2>The ecosystem this belongs to</h2>
   <p>Every Aitherium repository publishes an <code>aither-manifest.json</code> beside its
   page, and each surface reads all of them — so the network is browsable from any node in
-  it. A repository that publishes nothing shows as <em>unknown</em>, never as zero.</p>
-  <div id="aither-constellation"
-       data-self="awskills"></div>
+  it.</p>
+  <div id="aither-constellation" data-self="awknowledge"></div>
 </section>
-<script src="aither-constellation.js"></script>
-
+<script src="../aither-constellation.js"></script>
 <footer><div class="wrap"><div class="row">
   <span class="el"><span class="n">47</span><span class="s">Ai</span></span>
-  <div>
-    <div style="color:var(--foreground);font-weight:500">Aitherium — The Element of Creation</div>
-    <div>The Developer Codex &amp;middot; MIT licensed</div>
-  </div>
-  <span class="sp"></span>
-  <a href="https://github.com/Aitherium/awskills">GitHub</a>
-  <a href="https://github.com/Aitherium/awskills/blob/main/LICENSE">License</a>
-  <a href="https://blog.aitherium.com">Blog</a>
-  <a href="https://aitherium.com">aitherium.com</a>
+  <span>The Aither World Guide &middot; MIT licensed &middot; generated from journey.yaml</span>
 </div></div></footer>
 <script>
 document.querySelectorAll('.code').forEach(function(box){

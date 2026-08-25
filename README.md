@@ -1,15 +1,5 @@
 # The Developer Codex — how to run a coding agent so the result survives
 
-<!-- aither-header:start GENERATED from the ecosystem registry. Edits here are overwritten; change the registry instead. -->
-
-**[Docs](https://aitherium.github.io/awknowledge/)**  ·  [Source](https://github.com/Aitherium/awknowledge)  ·  [The Aither World](https://aitherium.github.io/)
-
-> **The Aither World** is an operating system for agents — a Linux you can hand to one, the runtimes it works in, and the tools it works with. [awnix](https://github.com/Aitherium/awnix) is the Linux underneath it; **awknowledge** is one of its 33 bricks — each installs on its own, runs offline, and needs no account.
->
-> **Start here:** Read one law and apply it to the next thing you ship.
-
-<!-- aither-header:end -->
-
 This is the operating manual for a codebase where agents do most of the typing.
 
 It is not advice. Every law below was a real failure first — something shipped
@@ -24,9 +14,10 @@ Read it in order the first time. After that it is a lookup table.
 ## Who this is for
 
 **You have never used a coding agent.** Start at
-[the path](path/00-what-this-actually-is.md). Four short chapters, about an hour,
-and you will have an agent doing real work on your machine with a gate that can
-tell you when it is wrong.
+[the Aither World Guide](https://aitherium.github.io/awknowledge/) — ten short
+chapters, from "what is an agent?" to a terminal that answers you, with the
+command to type beside every idea it teaches. The same chapters are below under
+[path/](path/); offline, `pip install awkno` then `awkno guide`.
 
 **You already use one and it keeps producing confident garbage.** Skip to
 [LAW 1](laws/01-a-rule-nothing-asserts-is-a-suggestion.md). The problem is almost
@@ -42,10 +33,16 @@ per incident, because nothing tells you they happened.
 
 | | |
 |---|---|
-| [00 · What this actually is](path/00-what-this-actually-is.md) | An agent is a loop with tools, not an oracle. What that changes about how you ask. |
-| [01 · Your first hour](path/01-your-first-hour.md) | Install, point it at a real repo, and get one verified change. No toy examples. |
-| [02 · Run it on your own hardware](path/02-your-own-hardware.md) | Local models: what a small model is genuinely good at, what it is not, and how to tell the difference by measuring rather than vibes. |
-| [03 · Give it hands](path/03-give-it-hands.md) | Tools, skills and agent packs — the difference between an agent that answers and one that acts. |
+| [00 · Welcome to Aither World](path/00-welcome.md) | What Aitherium, AitherOS and the aw* bricks are - in plain words, before you install anything. |
+| [01 · Install awdk](path/01-install-awdk.md) | One command puts the whole kit on your machine. Then you check it worked. |
+| [02 · Your first local brain](path/02-first-brain.md) | Run an open model on your own computer, offline. Learn what "8B" and "1-bit" actually mean. |
+| [03 · Talk to it](path/03-talk-to-it.md) | Ask your brain one question, then open a chat. Optionally connect to the cloud for the bigger brains. |
+| [04 · Build your first agent](path/04-build-an-agent.md) | An agent is a brain plus tools plus a job. You will scaffold one in three files and watch it use a tool. |
+| [05 · Agent packs](path/05-agent-packs.md) | Someone already built the agent you want. Find it, install it, run it - and know what is still coming. |
+| [06 · Your own hardware](path/06-your-own-hardware.md) | CPU or GPU, laptop or rack - how the open model stack picks a model for what you have, and how a brain gets registered. |
+| [07 · Deploy on awnix](path/07-deploy-on-awnix.md) | An immutable Linux built for machines where software writes software. Your agent becomes three lines in a Dockerfile. |
+| [08 · Many agents, one repo](path/08-many-agents.md) | Two agents editing the same code without sweeping each other's work - leases, a call graph, messaging, memory. |
+| [09 · The omnibox](path/09-omnibox.md) | Your terminal answers you. Type a question where a command would go. |
 
 ## The doctrine — how to prompt and steer
 
@@ -212,8 +209,5 @@ Every repository here is public. Each publishes an `aither-manifest.json` beside
 | [awresearch](https://github.com/Aitherium/awresearch) | Ask a research question, get a cited report you can check | [docs](https://aitherium.github.io/awresearch/) |
 | [awpredict](https://github.com/Aitherium/awpredict) | Predict what your environment does next, and how surprised you were | [docs](https://aitherium.github.io/awpredict/) |
 | [awkno](https://github.com/Aitherium/awkno) | The man page for the Aither World — every brick, stack and law, offline | [docs](https://aitherium.github.io/awkno/) |
-
-<div id="aither-constellation" data-self="awknowledge"></div>
-<script src="aither-constellation.js"></script>
 
 <!-- aither-ecosystem:end -->
