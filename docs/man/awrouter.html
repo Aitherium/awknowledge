@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>awgraph — man page — The Aither World Guide</title>
-<meta name="description" content="A semantic code graph for agents — AST + tree-sitter, call graphs.">
-<meta property="og:title" content="awgraph — man page — The Aither World Guide">
-<meta property="og:description" content="A semantic code graph for agents — AST + tree-sitter, call graphs.">
+<title>awrouter — man page — The Aither World Guide</title>
+<meta name="description" content="OpenRouter for your own fleet: pick a model backend by cost/latency/ capability, fail over, fit the context window, stream. Standalone, OpenAI-compatible, no Aither-specifics required to be valuable.">
+<meta property="og:title" content="awrouter — man page — The Aither World Guide">
+<meta property="og:description" content="OpenRouter for your own fleet: pick a model backend by cost/latency/ capability, fail over, fit the context window, stream. Standalone, OpenAI-compatible, no Aither-specifics required to be valuable.">
 <meta property="og:type" content="article">
 <meta name="theme-color" content="#0A0F1E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -533,20 +533,20 @@ header .wrap>*:nth-child(6){animation-delay:.25s}
 </div></nav>
 <main class="guide-wrap">
 
-<p class="crumbs"><a href="../index.html">The Path</a> › <a href="index.html">Man pages</a> › awgraph</p>
+<p class="crumbs"><a href="../index.html">The Path</a> › <a href="index.html">Man pages</a> › awrouter</p>
 <article class="man">
 <header class="chapter-head">
-  <h1>awgraph<small style="opacity:.6;font-size:.5em;margin-left:.6rem">(tool, public)</small></h1>
-  <p class="lede">A semantic code graph for agents — AST + tree-sitter, call graphs.</p>
+  <h1>awrouter<small style="opacity:.6;font-size:.5em;margin-left:.6rem">(runtime, public)</small></h1>
+  <p class="lede">OpenRouter for your own fleet: pick a model backend by cost/latency/ capability, fail over, fit the context window, stream. Standalone, OpenAI-compatible, no Aither-specifics required to be valuable.</p>
 </header>
-<div class="sect"><h2>Name</h2><p><b>awgraph</b> — A semantic code graph for agents — AST + tree-sitter, call graphs.</p></div>
-<div class="sect"><h2>The problem it solves</h2><p>"Who calls this?" answered by grep is a guess. Agents burn enormous context re-reading files to rebuild a graph the parser already knows.</p></div>
-<div class="sect"><h2>Instead of trusting / you check</h2><dl><dt>instead of trusting</dt><dd>that grep found everything</dd><dt>you check</dt><dd>an AST + tree-sitter call graph an agent can traverse</dd></dl></div>
-<div class="sect"><h2>Adopt it alone</h2><p>Index one repo and ask it who calls one function.</p></div>
-<div class="sect"><h2>Install</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">install</span></div><pre>pip install awgraph</pre></div></div>
-<div class="sect"><h2>Where it sits in the path</h2><ul><li><a href="../path/08-many-agents.html">Chapter 8 · Many agents, one repo</a></li></ul></div>
-<div class="sect"><h2>See also</h2><p><a href="awm.html">awm</a> · <a href="awdk.html">awdk</a> · <a href="awtoll.html">awtoll</a> · <a href="awembed.html">awembed</a></p></div>
-<div class="sect"><h2>Links</h2><p><a href="https://github.com/Aitherium/awgraph">Source on GitHub</a> · <a href="https://aitherium.github.io/awgraph/">Its own page</a></p></div>
+<div class="sect"><h2>Name</h2><p><b>awrouter</b> — OpenRouter for your own fleet: pick a model backend by cost/latency/ capability, fail over, fit the context window, stream. Standalone, OpenAI-compatible, no Aither-specifics required to be valuable.</p></div>
+<div class="sect"><h2>The problem it solves</h2><p>Every LLM call in the platform routes through MicroScheduler (:8150) -- but the routing logic (backend discovery, failover, tier maps, context fitting, streaming) is buried inside a 19,535-line service with 107 monorepo imports. A stranger cannot run it: it demands the internal CA, services.yaml discovery, secrets at :8111, the fleet's model inventory. The routing plane is valuable standalone and entangled by accident of packaging, not by design.</p></div>
+<div class="sect"><h2>Instead of trusting / you check</h2><dl><dt>instead of trusting</dt><dd>—</dd><dt>you check</dt><dd>—</dd></dl></div>
+<div class="sect"><h2>Adopt it alone</h2><p>Point it at your backends (vLLM / llama.cpp / any OpenAI-compatible endpoint); ask it which backend should serve model X right now, or to stream a completion with failover and context fitting.</p></div>
+<div class="sect"><h2>Install</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">install</span></div><pre>git clone https://github.com/Aitherium/awrouter</pre></div></div>
+<div class="sect"><h2>Where it sits in the path</h2><ul><li>Not on the path yet — reference only.</li></ul></div>
+<div class="sect"><h2>See also</h2><p><a href="awdk.html">awdk</a> · <a href="awsh.html">awsh</a> · <a href="awnode.html">awnode</a></p></div>
+<div class="sect"><h2>Links</h2><p><a href="https://github.com/Aitherium/awrouter">Source on GitHub</a> · <a href="https://aitherium.github.io/awrouter/">Its own page</a></p></div>
 <p class="stamp">Generated 2026-09-14 00:48Z from the ecosystem registry. A field here that is wrong is wrong in the registry — fix it there and this page follows.</p>
 </article>
 

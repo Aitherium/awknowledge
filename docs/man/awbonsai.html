@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>awgraph — man page — The Aither World Guide</title>
-<meta name="description" content="A semantic code graph for agents — AST + tree-sitter, call graphs.">
-<meta property="og:title" content="awgraph — man page — The Aither World Guide">
-<meta property="og:description" content="A semantic code graph for agents — AST + tree-sitter, call graphs.">
+<title>awbonsai — man page — The Aither World Guide</title>
+<meta name="description" content="Run a real model in the visitor&#x27;s own browser — no server round trip, no upload.">
+<meta property="og:title" content="awbonsai — man page — The Aither World Guide">
+<meta property="og:description" content="Run a real model in the visitor&#x27;s own browser — no server round trip, no upload.">
 <meta property="og:type" content="article">
 <meta name="theme-color" content="#0A0F1E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -533,20 +533,20 @@ header .wrap>*:nth-child(6){animation-delay:.25s}
 </div></nav>
 <main class="guide-wrap">
 
-<p class="crumbs"><a href="../index.html">The Path</a> › <a href="index.html">Man pages</a> › awgraph</p>
+<p class="crumbs"><a href="../index.html">The Path</a> › <a href="index.html">Man pages</a> › awbonsai</p>
 <article class="man">
 <header class="chapter-head">
-  <h1>awgraph<small style="opacity:.6;font-size:.5em;margin-left:.6rem">(tool, public)</small></h1>
-  <p class="lede">A semantic code graph for agents — AST + tree-sitter, call graphs.</p>
+  <h1>awbonsai<small style="opacity:.6;font-size:.5em;margin-left:.6rem">(runtime, public)</small></h1>
+  <p class="lede">Run a real model in the visitor's own browser — no server round trip, no upload.</p>
 </header>
-<div class="sect"><h2>Name</h2><p><b>awgraph</b> — A semantic code graph for agents — AST + tree-sitter, call graphs.</p></div>
-<div class="sect"><h2>The problem it solves</h2><p>"Who calls this?" answered by grep is a guess. Agents burn enormous context re-reading files to rebuild a graph the parser already knows.</p></div>
-<div class="sect"><h2>Instead of trusting / you check</h2><dl><dt>instead of trusting</dt><dd>that grep found everything</dd><dt>you check</dt><dd>an AST + tree-sitter call graph an agent can traverse</dd></dl></div>
-<div class="sect"><h2>Adopt it alone</h2><p>Index one repo and ask it who calls one function.</p></div>
-<div class="sect"><h2>Install</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">install</span></div><pre>pip install awgraph</pre></div></div>
-<div class="sect"><h2>Where it sits in the path</h2><ul><li><a href="../path/08-many-agents.html">Chapter 8 · Many agents, one repo</a></li></ul></div>
-<div class="sect"><h2>See also</h2><p><a href="awm.html">awm</a> · <a href="awdk.html">awdk</a> · <a href="awtoll.html">awtoll</a> · <a href="awembed.html">awembed</a></p></div>
-<div class="sect"><h2>Links</h2><p><a href="https://github.com/Aitherium/awgraph">Source on GitHub</a> · <a href="https://aitherium.github.io/awgraph/">Its own page</a></p></div>
+<div class="sect"><h2>Name</h2><p><b>awbonsai</b> — Run a real model in the visitor's own browser — no server round trip, no upload.</p></div>
+<div class="sect"><h2>The problem it solves</h2><p>Every in-browser LLM demo either phones home for the real answer or downloads a few hundred MB unasked. Getting BOTH right -- genuinely local inference, and a consent gate that runs BEFORE the fetch instead of after -- is the part nobody ships, so most "runs in your browser" claims are marketing for a server call.</p></div>
+<div class="sect"><h2>Instead of trusting / you check</h2><dl><dt>instead of trusting</dt><dd>that inference always means a request left the machine</dd><dt>you check</dt><dd>a WebGPU model answering on the tab's own GPU, with a consent record logged before it ever loaded</dd></dl></div>
+<div class="sect"><h2>Adopt it alone</h2><p>Load one page and get an answer from a model that never left the tab.</p></div>
+<div class="sect"><h2>Install</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">install</span></div><pre>git clone https://github.com/Aitherium/awbonsai</pre></div></div>
+<div class="sect"><h2>Where it sits in the path</h2><ul><li>Not on the path yet — reference only.</li></ul></div>
+<div class="sect"><h2>See also</h2><p><a href="awkit.html">awkit</a> · awsprite · <a href="AitherConnect.html">AitherConnect</a></p></div>
+<div class="sect"><h2>Links</h2><p><a href="https://github.com/Aitherium/awbonsai">Source on GitHub</a> · <a href="https://aitherium.github.io/awbonsai/">Its own page</a></p></div>
 <p class="stamp">Generated 2026-09-14 00:48Z from the ecosystem registry. A field here that is wrong is wrong in the registry — fix it there and this page follows.</p>
 </article>
 

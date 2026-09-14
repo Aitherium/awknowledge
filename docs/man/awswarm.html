@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>awgraph — man page — The Aither World Guide</title>
-<meta name="description" content="A semantic code graph for agents — AST + tree-sitter, call graphs.">
-<meta property="og:title" content="awgraph — man page — The Aither World Guide">
-<meta property="og:description" content="A semantic code graph for agents — AST + tree-sitter, call graphs.">
+<title>awswarm — man page — The Aither World Guide</title>
+<meta name="description" content="Run one model too big for any single GPU across a pool of small ones.">
+<meta property="og:title" content="awswarm — man page — The Aither World Guide">
+<meta property="og:description" content="Run one model too big for any single GPU across a pool of small ones.">
 <meta property="og:type" content="article">
 <meta name="theme-color" content="#0A0F1E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -533,20 +533,20 @@ header .wrap>*:nth-child(6){animation-delay:.25s}
 </div></nav>
 <main class="guide-wrap">
 
-<p class="crumbs"><a href="../index.html">The Path</a> › <a href="index.html">Man pages</a> › awgraph</p>
+<p class="crumbs"><a href="../index.html">The Path</a> › <a href="index.html">Man pages</a> › awswarm</p>
 <article class="man">
 <header class="chapter-head">
-  <h1>awgraph<small style="opacity:.6;font-size:.5em;margin-left:.6rem">(tool, public)</small></h1>
-  <p class="lede">A semantic code graph for agents — AST + tree-sitter, call graphs.</p>
+  <h1>awswarm<small style="opacity:.6;font-size:.5em;margin-left:.6rem">(tool, public)</small></h1>
+  <p class="lede">Run one model too big for any single GPU across a pool of small ones.</p>
 </header>
-<div class="sect"><h2>Name</h2><p><b>awgraph</b> — A semantic code graph for agents — AST + tree-sitter, call graphs.</p></div>
-<div class="sect"><h2>The problem it solves</h2><p>"Who calls this?" answered by grep is a guess. Agents burn enormous context re-reading files to rebuild a graph the parser already knows.</p></div>
-<div class="sect"><h2>Instead of trusting / you check</h2><dl><dt>instead of trusting</dt><dd>that grep found everything</dd><dt>you check</dt><dd>an AST + tree-sitter call graph an agent can traverse</dd></dl></div>
-<div class="sect"><h2>Adopt it alone</h2><p>Index one repo and ask it who calls one function.</p></div>
-<div class="sect"><h2>Install</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">install</span></div><pre>pip install awgraph</pre></div></div>
-<div class="sect"><h2>Where it sits in the path</h2><ul><li><a href="../path/08-many-agents.html">Chapter 8 · Many agents, one repo</a></li></ul></div>
-<div class="sect"><h2>See also</h2><p><a href="awm.html">awm</a> · <a href="awdk.html">awdk</a> · <a href="awtoll.html">awtoll</a> · <a href="awembed.html">awembed</a></p></div>
-<div class="sect"><h2>Links</h2><p><a href="https://github.com/Aitherium/awgraph">Source on GitHub</a> · <a href="https://aitherium.github.io/awgraph/">Its own page</a></p></div>
+<div class="sect"><h2>Name</h2><p><b>awswarm</b> — Run one model too big for any single GPU across a pool of small ones.</p></div>
+<div class="sect"><h2>The problem it solves</h2><p>A frontier MoE checkpoint (Kimi K3, ~1.56TB) fits no consumer card, and "rent a bigger box" stops being an option past a certain size. Splitting a model finely enough to run on heterogeneous, unreliable consumer GPUs -- some too small to hold even one full layer -- is a placement and scheduling problem with no shipped general answer. The money-losing failure mode is retrying a fleet acquisition that was never going to complete, because nothing scored the odds before spending on it.</p></div>
+<div class="sect"><h2>Instead of trusting / you check</h2><dl><dt>instead of trusting</dt><dd>that a model either fits your GPU or it doesn't run at all</dd><dt>you check</dt><dd>a placement plan and an acquisition-probability estimate before you spend on a run</dd></dl></div>
+<div class="sect"><h2>Adopt it alone</h2><p>Feed it one layer's shape and a pool of heterogeneous GPU specs and get back a sub-layer placement plan, plus the probability that plan actually assembles.</p></div>
+<div class="sect"><h2>Install</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">install</span></div><pre>pip install git+https://github.com/Aitherium/awswarm.git</pre></div></div>
+<div class="sect"><h2>Where it sits in the path</h2><ul><li>Not on the path yet — reference only.</li></ul></div>
+<div class="sect"><h2>See also</h2><p><a href="awnet.html">awnet</a> · <a href="awrun.html">awrun</a> · <a href="awdk.html">awdk</a></p></div>
+<div class="sect"><h2>Links</h2><p><a href="https://github.com/Aitherium/awswarm">Source on GitHub</a> · <a href="https://aitherium.github.io/awswarm/">Its own page</a></p></div>
 <p class="stamp">Generated 2026-09-14 00:48Z from the ecosystem registry. A field here that is wrong is wrong in the registry — fix it there and this page follows.</p>
 </article>
 
