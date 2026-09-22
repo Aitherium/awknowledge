@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>awpredict — man page — The Aither World Guide</title>
-<meta name="description" content="Predict what your environment does next, and how surprised you were.">
-<meta property="og:title" content="awpredict — man page — The Aither World Guide">
-<meta property="og:description" content="Predict what your environment does next, and how surprised you were.">
+<title>awstorage — man page — The Aither World Guide</title>
+<meta name="description" content="Every drive on every node, indexed, classified and diffed -- so you can see what you own before you delete it.">
+<meta property="og:title" content="awstorage — man page — The Aither World Guide">
+<meta property="og:description" content="Every drive on every node, indexed, classified and diffed -- so you can see what you own before you delete it.">
 <meta property="og:type" content="article">
 <meta name="theme-color" content="#0A0F1E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -533,20 +533,20 @@ header .wrap>*:nth-child(6){animation-delay:.25s}
 </div></nav>
 <main class="guide-wrap">
 
-<p class="crumbs"><a href="../index.html">The Path</a> › <a href="index.html">Man pages</a> › awpredict</p>
+<p class="crumbs"><a href="../index.html">The Path</a> › <a href="index.html">Man pages</a> › awstorage</p>
 <article class="man">
 <header class="chapter-head">
-  <h1>awpredict<small style="opacity:.6;font-size:.5em;margin-left:.6rem">(tool, public)</small></h1>
-  <p class="lede">Predict what your environment does next, and how surprised you were.</p>
+  <h1>awstorage<small style="opacity:.6;font-size:.5em;margin-left:.6rem">(tool, public)</small></h1>
+  <p class="lede">Every drive on every node, indexed, classified and diffed -- so you can see what you own before you delete it.</p>
 </header>
-<div class="sect"><h2>Name</h2><p><b>awpredict</b> — Predict what your environment does next, and how surprised you were.</p></div>
-<div class="sect"><h2>The problem it solves</h2><p>An agent that cannot anticipate its environment can only react. Every framework that offers this makes you adopt its whole training stack to find out whether a learned model beats the lookup table you already have.</p></div>
-<div class="sect"><h2>Instead of trusting / you check</h2><dl><dt>instead of trusting</dt><dd>a model because it trained without erroring</dd><dt>you check</dt><dd>its prediction against a self-updating lookup, on the rows that are actually novel</dd></dl></div>
-<div class="sect"><h2>Adopt it alone</h2><p>Wrap an environment you already have and ask it what happens next.</p></div>
-<div class="sect"><h2>Install</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">install</span></div><pre>pip install git+https://github.com/Aitherium/awpredict.git</pre></div></div>
+<div class="sect"><h2>Name</h2><p><b>awstorage</b> — Every drive on every node, indexed, classified and diffed -- so you can see what you own before you delete it.</p></div>
+<div class="sect"><h2>The problem it solves</h2><p>Storage sprawls faster than anyone can look at it. Caches, dead builds, duplicate model weights and orphaned volumes accumulate across drives and nodes, and the only tool is an ad-hoc du that answers one question once and is forgotten. Deleting without an inventory destroys the wrong thing; not deleting fills the disk that holds Postgres.</p></div>
+<div class="sect"><h2>Instead of trusting / you check</h2><dl><dt>instead of trusting</dt><dd>a du you ran last month, and a peers file that says 3 TB free</dd><dt>you check</dt><dd>an inventory snapshot per node with a diff since the last one, and each tree classified re-fetchable or not</dd></dl></div>
+<div class="sect"><h2>Adopt it alone</h2><p>Scan one drive and read a ranked inventory of what fills it, with each tree marked re-fetchable or not.</p></div>
+<div class="sect"><h2>Install</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">install</span></div><pre>pip install awstorage</pre></div></div>
 <div class="sect"><h2>Where it sits in the path</h2><ul><li>Not on the path yet — reference only.</li></ul></div>
-<div class="sect"><h2>See also</h2><p><a href="awm.html">awm</a></p></div>
-<div class="sect"><h2>Links</h2><p><a href="https://github.com/Aitherium/awpredict">Source on GitHub</a> · <a href="https://aitherium.github.io/awpredict/">Its own page</a></p></div>
+<div class="sect"><h2>See also</h2><p><a href="awrecover.html">awrecover</a> · <a href="awdk.html">awdk</a> · <a href="awnode.html">awnode</a> · <a href="awsh.html">awsh</a> · <a href="awgraph.html">awgraph</a></p></div>
+<div class="sect"><h2>Links</h2><p><a href="https://github.com/Aitherium/awstorage">Source on GitHub</a> · <a href="https://aitherium.github.io/awstorage/">Its own page</a></p></div>
 <p class="stamp">Generated 2026-09-22 01:16Z from the ecosystem registry. A field here that is wrong is wrong in the registry — fix it there and this page follows.</p>
 </article>
 
