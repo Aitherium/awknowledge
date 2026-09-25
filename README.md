@@ -60,10 +60,10 @@ Two skills in this pack carry the operating doctrine. They are mined from
 27,939 prompts across 3,183 sessions over 210 days, re-measured on a disjoint
 34-day window.
 
-- [`code-like-david`](../skills/code-like-david.md) — the thirteen rules: prompt
+- [`code-like-david`](https://github.com/Aitherium/awskills/blob/main/skills/code-like-david.md) — the thirteen rules: prompt
   shape, live-proof gates, plan documents as files, persistent memory, when to
   orchestrate, when to compact, how to route models.
-- [`ramble-driven-development`](../skills/ramble-driven-development.md) — the
+- [`ramble-driven-development`](https://github.com/Aitherium/awskills/blob/main/skills/ramble-driven-development.md) — the
   shape law. Median human prompt: 56 characters. The 5.9% over 1,000 chars carry
   78% of everything typed. There is nothing useful in between.
 
@@ -149,7 +149,7 @@ be careful. That is the entire claim, and it is the only one worth making.
 
 ---
 
-*Part of [awskills](../README.md) — MIT licensed, free to fork and adapt.*
+*Part of [awskills](https://github.com/Aitherium/awskills) — MIT licensed, free to fork and adapt.*
 
 <!-- aither-ecosystem:start GENERATED from the ecosystem registry. Edits here are overwritten; change the registry instead. -->
 
