@@ -322,6 +322,36 @@ chapters:
       - It is a shell hook (CommandNotFound), not a new shell - your terminal, your directory, your environment.
       - Probes made by scripts are ignored on purpose; only what a human types at the prompt is answered.
 
+  - id: 10-build-a-pack
+    title: Build a pack
+    blurb: Write a tool pack, check it without running it, load it the way an agent will, and build bytes anyone can verify.
+    persona: builder
+    minutes: 20
+    requires: [05-agent-packs]
+    bricks: [awdk]
+    status: preview
+    installs: []
+    do:
+      - cmd: adk pack new yourname.weather
+        expect: "created <path>/yourname.weather, then the next two commands to run"
+        if_not: "If it says the id is reserved, use a namespace of your own, like your GitHub handle."
+      - cmd: adk pack validate yourname.weather
+        expect: "OK yourname.weather 0.1.0 ... all clean"
+        if_not: "Each PKA code names the file or field to fix. Fix it and run validate again."
+      - cmd: adk pack dev yourname.weather
+        expect: "OK yourname.weather: 1 tool(s) registered - weather_echo"
+        if_not: "0 tools means TOOL_NAMES in __init__.py does not name the functions in tools.py."
+      - cmd: adk pack build yourname.weather
+        expect: "built <path>/yourname.weather-0.1.0.tar.gz and a sha256"
+        if_not: "build refuses a pack that does not validate - run validate and fix what it lists."
+    done_check:
+      cmd: adk pack validate yourname.weather
+      expect: "OK yourname.weather 0.1.0"
+    learned:
+      - A tool pack is a folder - a manifest, a register() function and plain Python tools.
+      - validate never runs the pack's code; dev is the one step that does, and it loads the pack exactly as an agent will.
+      - build is reproducible, so a digest you publish can be checked by anyone who rebuilds your source.
+
 reference:
   man_pages:
     source: AitherOS/config/ecosystem.yaml
