@@ -4,13 +4,13 @@
 # the guide tells a reader to type. The prose for each chapter lives beside it
 # in path/<id>.md (sections "## Teach" and "## Do"); the generator
 # (tools/guide_pages.py, called by tools/gen_public_pages.py) renders the two
-# side by side. Nothing here is advisory: AitherOS/dev/tools/check_guide_journey.py
+# side by side. Nothing here is advisory: the guide-journey checker (check_guide_journey.py)
 # asserts it (GJ001-GJ005) on every PR and in the publish lane.
 #
 #   requires:  earlier chapters only (GJ001) - the reader never needs a later one
 #   installs:  commands this chapter puts on the reader's PATH; a later chapter
 #              may use them, an earlier one may not (GJ001)
-#   bricks:    registered ids from AitherOS/config/ecosystem.yaml; they must be
+#   bricks:    registered ids from the ecosystem registry (ecosystem.yaml); must be
 #              public unless the chapter says `status: preview` (GJ003)
 #   do[].cmd:  a REAL console script + registered subcommand (GJ002); the check
 #              reads awdk/pyproject.toml + adk/cli.py and awsh's main.ts, never a
@@ -352,9 +352,32 @@ chapters:
       - validate never runs the pack's code; dev is the one step that does, and it loads the pack exactly as an agent will.
       - build is reproducible, so a digest you publish can be checked by anyone who rebuilds your source.
 
+  - id: 11-claude-code
+    title: Set up Claude Code the Aither way
+    blurb: Put every aw* brick in Claude Code as tools, skills and hooks with one command, then check it stays that way.
+    persona: builder
+    minutes: 10
+    requires: [01-install-awdk]
+    bricks: [awdk, awsettings]
+    installs: []
+    do:
+      - cmd: adk claude setup
+        expect: "the awsh plugin installed and the awsettings preset applied, each line OK"
+        if_not: "If it says Claude Code is not found, install Claude Code first and open a new terminal. If `adk claude` is unknown, run `pip install -U awdk`."
+      - cmd: adk claude doctor
+        expect: "no CCD findings - exit 0"
+        if_not: "Each CCD code names the file and the setting that drifted; run `adk claude setup` again, then doctor."
+    done_check:
+      cmd: adk claude doctor
+      expect: "no CCD findings"
+    learned:
+      - Claude Code reads settings from several layers; a setting in a layer that does not honour it silently does not exist.
+      - Permission mode belongs in your user settings, never in a repository other people clone.
+      - Presets and files travel between machines; credentials never do.
+
 reference:
   man_pages:
-    source: AitherOS/config/ecosystem.yaml
+    source: the ecosystem registry (ecosystem.yaml)
     status: [public]
   laws: laws/
   skills: https://aitherium.github.io/awskills/

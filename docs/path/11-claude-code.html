@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>awvoice — man page — The Aither World Guide</title>
-<meta name="description" content="Hear and speak — transcribe audio, synthesize a voice.">
-<meta property="og:title" content="awvoice — man page — The Aither World Guide">
-<meta property="og:description" content="Hear and speak — transcribe audio, synthesize a voice.">
+<title>Set up Claude Code the Aither way — The Aither World Guide</title>
+<meta name="description" content="the bricks as tools, the settings in the right scope">
+<meta property="og:title" content="Set up Claude Code the Aither way — The Aither World Guide">
+<meta property="og:description" content="the bricks as tools, the settings in the right scope">
 <meta property="og:type" content="article">
 <meta name="theme-color" content="#0A0F1E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -533,23 +533,26 @@ header .wrap>*:nth-child(6){animation-delay:.25s}
 </div></nav>
 <main class="guide-wrap">
 
-<p class="crumbs"><a href="../index.html">The Path</a> › <a href="index.html">Man pages</a> › awvoice</p>
-<article class="man">
+<p class="crumbs"><a href="../index.html">The Path</a> › Chapter 11 of 11</p>
 <header class="chapter-head">
-  <h1>awvoice<small style="opacity:.6;font-size:.5em;margin-left:.6rem">(tool, public)</small></h1>
-  <p class="lede">Hear and speak — transcribe audio, synthesize a voice.</p>
+  <h1>Set up Claude Code the Aither way</h1>
+  <p class="lede">the bricks as tools, the settings in the right scope</p>
+  <p class="meta">About 10 minutes · for builders
+  · bricks: <a href="../man/awdk.html">awdk</a> · <a href="../man/awsettings.html">awsettings</a></p>
 </header>
-<div class="sect"><h2>Name</h2><p><b>awvoice</b> — Hear and speak — transcribe audio, synthesize a voice.</p></div>
-<div class="sect"><h2>The problem it solves</h2><p>An agent that can only read text is deaf and mute. Every route to fixing that today is a vendor SDK that wants the audio uploaded, an API key, and a per-minute bill -- which rules it out for exactly the recordings people most want transcribed.</p></div>
-<div class="sect"><h2>Instead of trusting / you check</h2><dl><dt>instead of trusting</dt><dd>that a cloud vendor may hold your audio</dd><dt>you check</dt><dd>a transcript and a wav from a service you host</dd></dl></div>
-<div class="sect"><h2>Adopt it alone</h2><p>Turn speech into text and text into speech, on a service you host.</p></div>
-<div class="sect"><h2>Install</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">install</span></div><pre>pip install awvoice</pre></div></div>
-<div class="sect"><h2>Commands</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">commands</span></div><pre>awvoice</pre></div></div>
-<div class="sect"><h2>Where it sits in the path</h2><ul><li>Not on the path yet — reference only.</li></ul></div>
-<div class="sect"><h2>See also</h2><p><a href="awdk.html">awdk</a> · <a href="awbrowse.html">awbrowse</a> · <a href="awrelay.html">awrelay</a> · <a href="awdesk.html">awdesk</a> · <a href="awask.html">awask</a> · <a href="awsh.html">awsh</a> · awdeck</p></div>
-<div class="sect"><h2>Links</h2><p><a href="https://github.com/Aitherium/awvoice">Source on GitHub</a> · <a href="https://aitherium.github.io/awvoice/">Its own page</a></p></div>
-<p class="stamp">Generated 2026-09-27 08:01Z from the ecosystem registry. A field here that is wrong is wrong in the registry — fix it there and this page follows.</p>
-</article>
+<div class="cols">
+  <section class="col teach"><h2>Teach</h2><h3 id="one-command-instead-of-an-afternoon-of-settings">One command instead of an afternoon of settings</h3>
+<p>Claude Code can use every aw* brick you already have: as MCP servers it calls, as skills it loads when the task matches, and as hooks that run around each turn. Wiring that by hand means editing several settings files and getting each one's scope right. <code>adk claude setup</code> does it in one step, and <code>adk claude doctor</code> tells you whether it is still true next week.</p>
+<h3 id="which-file-a-setting-lives-in-matters">Which file a setting lives in matters</h3>
+<p>Claude Code reads settings from several layers: your user folder, the project, and a machine-local file next to it. A setting written to a layer that does not honour it is ignored without an error — it just does not exist (<a href="https://github.com/Aitherium/awknowledge/blob/main/laws/25-a-setting-in-a-scope-nobody-reads-does-not-exist.md">law 25</a>). Setup writes the permission mode to your <i>user</i> settings only, never to a repository other people clone.</p>
+<h3 id="what-travels-and-what-stays">What travels and what stays</h3>
+<p>Presets and files travel between your machines; credentials never do (<a href="https://github.com/Aitherium/awknowledge/blob/main/laws/29-portable-is-files-and-presets-never-credentials.md">law 29</a>). Setup keeps the two apart, so syncing your settings to a second machine never copies a token.</p>
+<h3 id="hooks-cost-time-on-every-call">Hooks cost time on every call</h3>
+<p>A hook runs on every tool call, so a slow one slows everything (<a href="https://github.com/Aitherium/awknowledge/blob/main/laws/26-a-hook-on-every-call-spends-a-latency-budget.md">law 26</a>). The hooks setup installs check cheaply first and only do real work when the call is one they care about.</p></section>
+  <section class="col do"><h2>Do</h2><div class="step"><span class="n">1</span><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">bash</span></div><pre>adk claude setup</pre></div><p class="expect"><b>You should see:</b> the awsh plugin installed and the awsettings preset applied, each line OK</p><p class="ifnot"><b>If not:</b> If it says Claude Code is not found, install Claude Code first and open a new terminal. If <code>adk claude</code> is unknown, run <code>pip install -U awdk</code>.</p></div><div class="step"><span class="n">2</span><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">bash</span></div><pre>adk claude doctor</pre></div><p class="expect"><b>You should see:</b> no CCD findings - exit 0</p><p class="ifnot"><b>If not:</b> Each CCD code names the file and the setting that drifted; run <code>adk claude setup</code> again, then doctor.</p></div><div class="done"><h2>Check you are done</h2><div class="code"><div class="bar"><span></span><span></span><span></span><span class="t">bash</span></div><pre>adk claude doctor</pre></div><p class="expect"><b>You should see:</b> no CCD findings</p></div></section>
+</div>
+<section class="learned"><h2>What you learned</h2><ul><li>Claude Code reads settings from several layers; a setting in a layer that does not honour it silently does not exist.</li><li>Permission mode belongs in your user settings, never in a repository other people clone.</li><li>Presets and files travel between machines; credentials never do.</li></ul></section>
+<nav class="pager"><a class="prev" href="10-build-a-pack.html"><span class="k">Previous</span>Build a pack</a><a class="next" href="../man/index.html"><span class="k">Reference</span>Every brick, as a man page</a></nav>
 
 </main>
 <section class="uni" id="universe" data-derived="ecosystem.yaml"><div class="wrap"><h2>One estate, 8 doors</h2><p class="sub">These projects are organs of the same system — the same identity plane, the same agent runtime, the same operational discipline. Follow any of them.</p><div class="uni-stage"><canvas class="uni-canvas" aria-hidden="true"></canvas><div class="uni-nodes"><a class="orb" href="https://aitherium.com" data-id="aitherium" data-kind="the os" style="--orb:var(--cyan)"><span class="k">the os</span><span class="n">aitherium.com</span><span class="d">The Living OS these four repos are cut from. Open, no login.</span></a><a class="orb" href="https://aitherium.github.io/awdk/" data-id="awdk" data-kind="python" style="--orb:var(--accent-warm)"><span class="k">python</span><span class="n">awdk</span><span class="d">Build AI agent fleets — 3 lines, any backend, local or cloud.</span></a><a class="orb" href="https://aitherium.github.io/awskills/" data-id="awskills" data-kind="markdown" style="--orb:var(--cyan)"><span class="k">markdown</span><span class="n">awskills</span><span class="d">Portable agent skills — self-contained procedures an agent loads on demand.</span></a><a class="orb here" href="https://aitherium.github.io/awknowledge/" data-id="awknowledge" data-kind="markdown" style="--orb:var(--accent-warm)"><span class="k">markdown</span><span class="n">awknowledge</span><span class="d">How to run a coding agent so the result survives — the laws, with evidence.</span></a><a class="orb" href="https://aitherium.github.io/aitherkvcache/" data-id="aitherkvcache" data-kind="cuda" style="--orb:var(--lavender)"><span class="k">cuda</span><span class="n">aitherkvcache</span><span class="d">Near-optimal KV cache quantization for LLM inference — sub-byte compression.</span></a><a class="orb" href="https://aitherium.github.io/AitherZero/" data-id="AitherZero" data-kind="powershell" style="--orb:var(--mint)"><span class="k">powershell</span><span class="n">AitherZero</span><span class="d">PowerShell 7+ automation framework — numbered, self-describing scripts.</span></a><a class="orb" href="https://blog.aitherium.com" data-id="blog" data-kind="writing" style="--orb:var(--coral)"><span class="k">writing</span><span class="n">The Blog</span><span class="d">How all of it is actually built, measured and operated.</span></a><a class="orb" href="https://aitherium.github.io/awrun/" data-id="awrun" data-kind="python" style="--orb:var(--coral)"><span class="k">python</span><span class="n">awrun</span><span class="d">A priority-aware queue and dispatcher for agentic runs and ad-hoc CI builds. It also judges whether the runner pool is big enough for the queue it is draining, and can ask a host to grow it -- reserving capacity is zero-sum, so a saturated pool needs more of it, not a different share of it.</span></a></div></div></div></section>

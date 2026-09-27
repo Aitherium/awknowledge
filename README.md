@@ -55,6 +55,7 @@ per incident, because nothing tells you they happened.
 | [08 · Many agents, one repo](path/08-many-agents.md) | Two agents editing the same code without sweeping each other's work - leases, a call graph, messaging, memory. |
 | [09 · The omnibox](path/09-omnibox.md) | Your terminal answers you. Type a question where a command would go. |
 | [10 · Build a pack](path/10-build-a-pack.md) | Write a tool pack, check it without running it, load it the way an agent will, and build bytes anyone can verify. |
+| [11 · Set up Claude Code the Aither way](path/11-claude-code.md) | Put every aw* brick in Claude Code as tools, skills and hooks with one command, then check it stays that way. |
 <!-- path:end -->
 
 ## Claude Code
