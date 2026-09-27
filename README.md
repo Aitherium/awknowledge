@@ -24,7 +24,7 @@ Read it in order the first time. After that it is a lookup table.
 ## Who this is for
 
 **You have never used a coding agent.** Start at
-[the Aither World Guide](https://aitherium.github.io/awknowledge/) — ten short
+[the Aither World Guide](https://aitherium.github.io/awknowledge/) — short
 chapters, from "what is an agent?" to a terminal that answers you, with the
 command to type beside every idea it teaches. The same chapters are below under
 [path/](path/); offline, `pip install awkno` then `awkno guide`.
@@ -41,6 +41,7 @@ per incident, because nothing tells you they happened.
 
 ## The path — from nothing to a working setup
 
+<!-- path:start GENERATED from journey.yaml by check_awskills_docs.py --write. Edit journey.yaml, not this table. -->
 | | |
 |---|---|
 | [00 · Welcome to Aither World](path/00-welcome.md) | What Aitherium, AitherOS and the aw* bricks are - in plain words, before you install anything. |
@@ -53,6 +54,24 @@ per incident, because nothing tells you they happened.
 | [07 · Deploy on awnix](path/07-deploy-on-awnix.md) | An immutable Linux built for machines where software writes software. Your agent becomes three lines in a Dockerfile. |
 | [08 · Many agents, one repo](path/08-many-agents.md) | Two agents editing the same code without sweeping each other's work - leases, a call graph, messaging, memory. |
 | [09 · The omnibox](path/09-omnibox.md) | Your terminal answers you. Type a question where a command would go. |
+| [10 · Build a pack](path/10-build-a-pack.md) | Write a tool pack, check it without running it, load it the way an agent will, and build bytes anyone can verify. |
+<!-- path:end -->
+
+## Claude Code
+
+The laws apply to any coding agent. If yours is Claude Code, two commands from
+[awdk](https://github.com/Aitherium/awdk) set it up the way these laws assume and
+then check that it stayed that way (both are new; if `adk claude --help` is not
+found, `pip install -U awdk` first):
+
+- `adk claude setup` — installs the aw* bricks as Claude Code MCP servers, skills
+  and hooks, and writes the settings that belong in your *user* scope (never the
+  repository's).
+- `adk claude doctor` — reads what Claude Code will actually load and reports each
+  drift as a named finding, exit 1 on any. Run it after an upgrade, and whenever a
+  tool you expect is missing.
+
+The setup follows the laws that came out of making it: [a setting in a scope nobody reads does not exist](laws/25-a-setting-in-a-scope-nobody-reads-does-not-exist.md), [a hook on every call spends a latency budget](laws/26-a-hook-on-every-call-spends-a-latency-budget.md), [one sanction file, never scattered](laws/27-one-sanction-file-never-scattered.md), [a guard in one direction is half a guard](laws/28-a-guard-in-one-direction-is-half-a-guard.md), and [portable is files and presets, never credentials](laws/29-portable-is-files-and-presets-never-credentials.md).
 
 ## The doctrine — how to prompt and steer
 
