@@ -1,0 +1,35 @@
+# awknowledge
+
+> How to run a coding agent so the result survives — the laws, with evidence.
+
+Everyone learns the same lessons about agent-written code the same expensive way, and writes none of them down where the next person looks.
+
+## Install
+
+```
+read it — https://aitherium.github.io/awknowledge/
+```
+
+## In Claude Code
+
+- skill: `/awknowledge`
+
+## Use it in 30 seconds
+
+Read one law and apply it to the next thing you ship.
+
+## Composes with
+
+- [awskills](https://aitherium.github.io/awskills/) — Portable agent skills — self-contained procedures an agent loads on demand.
+- [awkno](https://aitherium.github.io/awkno/) — The man page for the Aither World — every brick, stack and law, offline.
+- [awclassify](https://aitherium.github.io/awclassify/) — Classify any document -- what it is, who may read it, who it is for, what it is about.
+
+## Where it lives
+
+- Repo: https://github.com/Aitherium/awknowledge
+- Docs: https://aitherium.github.io/awknowledge/
+- Manifest (keys + the one-line adoption story): https://aitherium.github.io/awknowledge/aither-manifest.json
+
+This repository is mirrored from the AitherOS monorepo by `.github/workflows/sync-awknowledge.yml`; hand edits made here are overwritten on the next sync — change the source instead.
+
+Everything Aitherium, in one file for agents: https://aitherium.com/llms.txt
