@@ -244,6 +244,10 @@ chapters:
         optional: true
         expect: "on a machine BOOTED from the image: the running image and the rollback target"
         if_not: "Only meaningful on a box that booted from awnix (the ISO or a cloud image). Inside a container it is absent, and that is expected."
+      - cmd: curl -fsSL https://raw.githubusercontent.com/Aitherium/awnix/main/awnix-aws-ami.sh | sh -s -- --region us-east-1
+        optional: true
+        expect: "an AMI id, its snapshot id, and a ready aws ec2 run-instances command"
+        if_not: "Add --dry-run to see every AWS command without calling AWS. The script needs the aws CLI, credentials, podman or docker, and about 20 GiB free; it creates the bucket and the vmimport role itself."
     done_check:
       cmd: podman run --rm awnix:latest awgit --version
       expect: "a version string"
